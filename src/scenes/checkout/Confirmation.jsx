@@ -1,4 +1,4 @@
-import { Box, Alert, AlertTitle } from "@mui/material";
+Simport { Box, Alert, AlertTitle } from "@mui/material";
 
 const Confirmation = () => {
   return( <Box m="90px auto" width="80%" height="50vh">

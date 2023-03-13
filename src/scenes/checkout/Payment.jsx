@@ -11,7 +11,7 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
             mb: "15px",
           }}
           fontSize="18px"
-        >
+        >S
           Contact Info
         </Typography>
         <TextField
