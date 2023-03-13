@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import FavouriteOutlinedIcon from "@mui/icons-material/FavouriteBorderOutlined";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
@@ -19,28 +19,27 @@ const ItemDetails = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const getItem = async () => {
+    const item = await fetch(
+      `http://localhost:13377/api/items/${itemId}?populate=image`,
+      { method: "GET" }
+    );
 
-    async function getItem() {
-      const item = await fetch(
-        `http://localhost:13377/api/items/${itemId}?populate=image`,
-        { method: "GET" }
-      );
+    const itemJson = await item.json();
+    setItem(itemJson.data);
+  };
 
-      const itemJson = await item.json();
-      setItem(itemJson.data);
-    }
+  const getItems = async () => {
+    const items = await fetch(
+      "http://localhost:1337/api/items?populate=image",
+      {
+        method: "GET",
+      }
+    );
 
-    async function getItems() {
-      const items = await fetch(
-        "http://localhost:1337/api/items?populate=image",
-        {
-          method: "GET",
-        }
-      );
-
-      const itemsJson = await items.json();
-      setItems(itemsJson.data);
-    }
+    const itemsJson = await items.json();
+    setItems(itemsJson.data);
   };
 
   useEffect(() => {
@@ -110,7 +109,7 @@ const ItemDetails = () => {
 
           <Box>
             <Box m="20px 0 5px 0" display="flex">
-              <FavouriteBorderOutlinedIcon />
+              <FavoriteBorderOutlinedIcon />
               <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
             </Box>
             <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
@@ -138,15 +137,15 @@ const ItemDetails = () => {
           Related Products
         </Typography>
         <Box
-        mt ="20px"
-        display="flex"
-        flexWrap="wrap"
-        columnGap ="1.33%"
-        justifyContent = "space-between"
+          mt="20px"
+          display="flex"
+          flexWrap="wrap"
+          columnGap="1.33%"
+          justifyContent="space-between"
         >
-            {items.slice(0,4).map(( item, i) =>(
-                <Item key={`${item.name}-${i}`} item={item}/>
-            ))}
+          {items.slice(0, 4).map((item, i) => (
+            <Item key={`${item.name}-${i}`} item={item} />
+          ))}
         </Box>
       </Box>
     </Box>

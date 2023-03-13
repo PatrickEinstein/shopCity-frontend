@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
-import Item from "../../components/item";
+import Item from "../../components/Item";
 import { setItems } from "../../state";
 
 const ShoppingList = () => {
@@ -23,6 +23,8 @@ const ShoppingList = () => {
     );
 
     const itemsJson = await items.json();
+    console.log("🚀 ~ file: ShoppingList.jsx:26 ~ getItems ~ itemsJson:", itemsJson)
+
     dispatch(setItems(itemsJson.data));
   }
 
@@ -69,29 +71,32 @@ const ShoppingList = () => {
       </Tabs>
 
       <Box
-      margin ="0 auto"
-      display ="grid"
-      gridTemplateColumns ="repeat(auto-fill, 300px)"
-      justifyContent ="space-around"
-      rowGap ="20px"
-      columnGap ="1.33%"
+        margin="0 auto"
+        display="grid"
+        gridTemplateColumns="repeat(auto-fill, 300px)"
+        justifyContent="space-around"
+        rowGap="20px"
+        columnGap="1.33%"
       >
-        {value === "all" && items.map(( item) => (
-          <Item item={item} key ={`$[item.name]-${item.id}`}/>
-        ))}
+        {value === "all" &&
+          items.map((item) => (
+            <Item item={item} key={`$[item.name]-${item.id}`} />
+          ))}
 
-        {value === "newArrivals" && newArrivalsItems.map(( item) => (
-          <Item item={item} key ={`$[item.name]-${item.id}`}/>
-        ))}
+        {value === "newArrivals" &&
+          newArrivalsItems.map((item) => (
+            <Item item={item} key={`$[item.name]-${item.id}`} />
+          ))}
 
-        {value === "bestSellers" && bestSellersItems.map(( item) => (
-          <Item item={item} key ={`$[item.name]-${item.id}`}/>
-        ))}
+        {value === "bestSellers" &&
+          bestSellersItems.map((item) => (
+            <Item item={item} key={`$[item.name]-${item.id}`} />
+          ))}
 
-        {value === "topRated" && topRatedItems.map(( item) => (
-          <Item item={item} key ={`$[item.name]-${item.id}`}/>
-        ))}
-
+        {value === "topRated" &&
+          topRatedItems.map((item) => (
+            <Item item={item} key={`$[item.name]-${item.id}`} />
+          ))}
       </Box>
     </Box>
   );

@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { Box, Typography } from "@mui/material";
-import { Shades } from "../../theme";
+import { shades } from "../../theme";
 
 const Footer = () => {
   const {
@@ -22,7 +22,7 @@ const Footer = () => {
             variant="h4"
             fontWeight="bold"
             mb="30px"
-            color={Shades.secondary[500]}
+            color={shades.secondary[500]}
           >
             ECOMMERCE
           </Typography>

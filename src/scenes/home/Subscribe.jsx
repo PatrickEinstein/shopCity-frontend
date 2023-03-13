@@ -1,5 +1,5 @@
-import { Box, InputBase, Divider, Typography, IconButton} from "@mui/materal"
-import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlinedIcon"
+import { Box, InputBase, Divider, Typography, IconButton} from "@mui/material"
+import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
 import {useState} from "react";
 
 

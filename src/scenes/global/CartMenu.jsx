@@ -54,7 +54,7 @@ const CartMenu = () => {
           {/* HEADER */}
           <FlexBox mb="15px">
             <Typography variant="h3">SHOPPING BAG ({cart.length}) </Typography>
-            <IconButton conClick={() => dispatch(setIsCartOpen({}))}>
+            <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
               <CloseIcon />
             </IconButton>
           </FlexBox>
@@ -79,7 +79,7 @@ const CartMenu = () => {
                       <Typography fontWeight="bold">
                         {item.attributes.name}
                       </Typography>
-                      <IconButton onClick={() => dispatch(removeFromCart{ id: item.id })}>
+                      <IconButton onClick={() => dispatch(removeFromCart({ id: item.id }))}>
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
