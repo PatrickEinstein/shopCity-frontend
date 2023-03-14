@@ -4,7 +4,7 @@ import AddressForm from "./AddressForm";
 const Shipping = ({
   values,
   touched,
-  errors,S
+  errors,
   handleChange,
   handleBlur,
   setFieldValue,

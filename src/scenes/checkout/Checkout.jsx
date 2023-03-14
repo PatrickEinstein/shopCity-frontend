@@ -129,7 +129,7 @@ const Checkout = () => {
                   color="primary"
                   variant="contained"
                   sx={{
-                    backgroundColor: shades.primary[400],S
+                    backgroundColor: shades.primary[400],
                     boxShadow: "none",
                     color: "white",
                     borderRadius: 0,
